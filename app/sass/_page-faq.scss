@@ -1,0 +1,54 @@
+// FAQs
+.faq {
+		position: relative;
+		.scroll-to-top {
+				position: absolute;
+				right: 0;
+				bottom: $md-padd;
+				.fa {
+						font-size: $base-font-size * 2;
+						color: $base-border-color;
+				}
+				&:before {
+						content: '\f077';
+						font-family: $font-icons;
+				}
+		}
+}
+
+.faq-header {
+		overflow: auto;
+}
+
+.qa {
+		position: relative;
+		.question {
+				position: relative;
+				display: block;
+				padding: $sm-padd $md-padd $sm-padd;
+		}
+		.question:before {
+				content: '\f078';
+				font-family: $font-icons;
+				position: absolute;
+				top: $sm-padd;
+				left: 0;
+		}
+		.question.open:before {
+				content: '\f00d';
+		}
+		.question.open + p {
+				margin-bottom: $sm-padd;
+		}
+		h2 {
+				font-size: $base-font-size;
+				color: $highlight-color;
+				padding-left: $base-font-size *2;
+		}
+		p {
+				display: none;
+				padding: $base-font-size $base-font-size *2;
+				background-color: $bg-color-light;
+				margin: 0;
+		}
+}

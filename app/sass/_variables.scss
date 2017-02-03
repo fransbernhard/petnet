@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter:400,700');
+@import url('https://fonts.googleapis.com/css?family=Sanchez');
+
+@font-face {
+    font-family: 'fontawesome';
+    src: url("../../app/fonts/fontawesome-webfont.woff") format("woff");
+}
+
+// Typography
+$base-font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+$heading-font-family: 'Sanchez', serif;
+$font-icons: 'fontawesome';
+
+// Padding
+$xs-padd: rem(5);
+$sm-padd: rem(15);
+$md-padd: rem(30);
+$lg-padd: rem(60);
+
+// Font Sizes
+// $font-size-sm: rem(12);
+// $base-font-size: rem(15);
+// $sm-heading: rem(20);
+// $md-heading: rem(25);
+// $lg-heading: rem(30);
+$font-size-sm: rem(10);
+$base-font-size: rem(13);
+$sm-heading: rem(16);
+$md-heading: rem(20);
+$lg-heading: rem(25);
+
+
+// Line height
+$base-line-height: 1.9;
+$heading-line-height: 1.5;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$primary-color: #525252; // darker gray
+$secondary-color: #CCCCCC; // gray
+$tertiary-color: #DFDFDC; // light gray
+$highlight-color: #D85665; // pink
+$bg-color: #f4f4f4; // lighter gray
+$bg-color-light: #fff; // white
+
+// Font Colors
+$base-font-color: $primary-color;
+
+// Border
+$base-border-color: $secondary-color;
+$base-border: 1px solid $secondary-color;
+
+// Neat Breakpoints
+$medium-screen: rem(768);
+$large-screen: rem(1200);
+
+$medium-screen-up: new-breakpoint(min-width $medium-screen 12);
+$large-screen-up: new-breakpoint(min-width $large-screen 12);
+
+$container-max-width: 1000px;
+$container-max-width-sm: 900px;
+
+// Font awesome mixins
+@mixin icon($content, $size: $base-font-size, $icon-color: $primary-color) {
+    font-family: $font-icons;
+    font-size: $size;
+    content: $content;
+    color: $icon-color;
+}

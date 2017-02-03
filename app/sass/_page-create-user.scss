@@ -1,0 +1,10 @@
+.um-120.um input[type=submit].um-button {
+		background: $highlight-color;
+		&:hover {
+				background: $tertiary-color;
+		}
+}
+.um-120.um .um-button.um-alt {
+		background: $primary-color;
+		color: $bg-color-light;
+}

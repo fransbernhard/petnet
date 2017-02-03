@@ -1,0 +1,177 @@
+body {
+    color: $base-font-color;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $heading-font-family;
+    font-size: modular-scale(1);
+    line-height: $heading-line-height;
+    margin: 0 0 $xs-padd;
+}
+
+
+p, span, .wpcf7-form {
+    //margin: 0 0 $small-spacing;
+    font-family: $base-font-family;
+    font-weight: 200;
+    line-height: $base-line-height;
+}
+
+h4 {
+    font-family: $base-font-family;
+    font-weight: 100;
+    font-size: $font-size-sm;
+}
+
+h5 {
+    font-family: $base-font-family;
+    font-weight: 500;
+    font-size: $base-font-size;
+}
+
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+    outline: 0;
+    &:active,
+    &:focus,
+    &:hover {
+        color: $highlight-color;
+        outline: 0;
+    }
+}
+
+hr {
+    border-bottom: $base-border;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: $base-spacing 0;
+}
+
+
+// Headings
+.page-title {
+    font-size: $lg-heading;
+}
+
+h1.about-title {
+    font-size: $lg-heading;
+}
+
+.employee {
+    h3 {
+        font-size: $md-heading;
+    }
+}
+.footer-widget {
+    h3 {
+        font-size: $sm-heading;
+    }
+}
+// Animal
+.moretag {
+    font-weight: 800;
+}
+
+.heart {
+    postition: relative;
+    display: inline;
+    &:before {
+        @include icon($fa-var-heart-o);
+    }
+    &:hover:before {
+        @include icon($fa-var-heart);
+    }
+}
+.trash {
+    postition: relative;
+    display: inline;
+    &:before {
+        @include icon($fa-var-trash-o);
+    }
+    &:hover:before {
+        @include icon($fa-var-trash);
+        color: $highlight-color;
+    }
+}
+
+h1.title {
+    font-size: $lg-heading;
+}
+
+h1.single-animal-title {
+    font-size: $sm-heading;
+}
+
+h2, h3 {
+    &.animal-title {
+    font-size: $md-heading;
+}
+}
+
+// .animal-property {
+//     .property {
+//         font-size: $md-heading;
+//     }
+// }
+
+/* ACF labels */
+.acf-field {
+    .acf-label {
+        label {
+            font-family: $base-font-family;
+            font-weight: 100;
+            font-size: $font-size-sm;
+        }
+    }
+}
+
+/* ULTIMATE MEMBER */
+
+.user-account {
+    h2 {
+        font-size: $md-heading;
+    }
+}
+
+/*FORM*/
+
+.um-field-label{
+     font-family: $heading-font-family;
+     font-size: modular-scale(1);
+     line-height: $heading-line-height;
+     margin: 0 0 $xs-padd;
+}
+
+// label{
+//     font-family: $heading-font-family;
+//     font-size: modular-scale(1);
+//     line-height: $heading-line-height;
+//     margin: 0 0 $xs-padd;
+// }
+
+
+/* SEARCH FILTER */
+.animal-property,
+.filter h3 {
+    text-transform: uppercase;
+    font-size: $font-size-sm;
+    font-family: $base-font-family;
+    font-weight: 600;
+}
+
+.filter li{
+    //margin: 0 0 $small-spacing;
+    font-family: $base-font-family;
+    font-weight: 200;
+}

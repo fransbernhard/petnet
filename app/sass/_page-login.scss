@@ -1,0 +1,65 @@
+.page-login {
+    padding: 0;
+    margin: 0;
+}
+
+.um-93.um {
+    margin-left: 0px !important;
+}
+
+
+.um-93.um input[type=submit].um-button {
+    background: $highlight-color;
+    &:hover {
+        background: $secondary-color;
+    }
+}
+
+.um-93.um .um-button.um-alt {
+    background: $primary-color;
+    color: $bg-color-light;
+
+    &:hover {
+        background: $secondary-color;
+    }
+}
+
+.um-93.um .um-field-checkbox.active i {
+    color: $highlight-color;
+}
+
+.login-image {
+    display: none;
+}
+
+
+@include media($medium-screen-up) {
+    .login-image {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        display: block;
+        padding-left: 50px;
+        margin-top: -$md-padd;
+        margin-right: -$md-padd;
+        //margin-bottom: -$md-padd;
+    }
+
+    .login-form {
+        height: 500px;
+        width: 100%;
+        padding-right: $md-padd;
+
+        .center-login-form {
+            width: 400px;
+            margin: auto;
+            margin-top: 90px;
+        }
+    }
+
+    .page-login {
+        width: 100%;
+        display: flex;
+    }
+}

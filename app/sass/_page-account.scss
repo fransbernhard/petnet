@@ -1,0 +1,44 @@
+.um-um_account_id.um input[type=submit].um-button {
+		background: $highlight-color;
+		&:hover {
+				background: $secondary-color;
+		}
+}
+.user-info {
+		.um-um_account_id.um a.um-link,
+		.um-account-side li a span.um-account-icon,
+		.um-um_account_id.um .um-field-radio.active i {
+				color: $highlight-color;
+		}
+		div.uimob800 .um-account-side li a.current {
+				background: $highlight-color;
+		}
+		.um-account-name {
+				display: none;
+		}
+		.um-icon-help-circled:hover {
+				color: $highlight-color;
+		}
+}
+.logout-btn.um-button {
+		color: $bg-color-light;
+		background: $primary-color;
+		border: none;
+		margin-bottom: $sm-padd;
+		float: right;
+		width: 100px;
+}
+
+
+@include media($medium-screen-up) {
+		.logout-btn.um-button {
+				width: 150px;
+		}
+		.user-account {
+				height: 150px;
+				padding: $md-padd;
+		}
+		.um-account-side li a span.um-account-arrow {
+			top: -6px!important;
+		}
+}

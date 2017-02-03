@@ -1,0 +1,19 @@
+.animal-tags {
+    margin-bottom: 0;
+    .property {
+        display: inline-block;
+        background-color: $bg-color;
+        color: tint($primary-color, 60%);
+        margin: 0 $xs-padd $xs-padd 0;
+        padding: $xs-padd $sm-padd;
+        border-radius: $sm-padd;
+        font-size: $font-size-sm;
+        font-weight: 600;
+        letter-spacing: .01rem;
+        text-transform: capitalize;
+    }
+    .property:before {
+        @include icon($fa-var-tag, $font-size-sm, $highlight-color);
+        margin-right: $xs-padd;
+    }
+}

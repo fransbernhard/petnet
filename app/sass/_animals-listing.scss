@@ -1,0 +1,114 @@
+.animals-buy {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    display: flex;
+}
+
+.animal {
+    width: 100%;
+    margin-bottom: $sm-padd;
+    overflow: hidden;
+}
+
+div.featured-image {
+    background-size: cover;
+    background-position: center;
+    background-clip: content-box;
+    background-repeat: no-repeat;
+    display: block;
+    height: 280px;
+    position: relative;
+}
+
+.animal-info {
+    background-color: $bg-color-light;
+    padding: $sm-padd;
+    .animal-title {
+        display: inline;
+    }
+    .animal-excerpt {
+        margin-top: $sm-padd;
+    }
+}
+
+.city-price {
+    display: flex;
+    text-align: center;
+    color: $bg-color-light;
+    > h5 {
+        width: 50%;
+        padding: $md-padd;
+    }
+    .city {
+        background-color: $secondary-color;
+    }
+    .price {
+        background-color: $highlight-color;
+    }
+}
+
+.animal-listing, .animal-listing-search-result {
+    width: 100%;
+}
+
+.search-filter.mobile-open {
+    display: block;
+    position: absolute;
+    z-index: 999;
+    width: 40%;
+    margin: 50px auto;
+    right: $sm-padd;
+}
+
+@include media($medium-screen-up) {
+
+    div.featured-image {
+        height: auto;
+    }
+    .animal {
+        display: flex;
+        margin-bottom: $md-padd;
+        // height: 250px;
+    }
+    .featured-image {
+        width: 35%;
+        height: auto;
+    }
+    .animal-info {
+        width: 50%;
+        padding: $sm-padd;
+    }
+    .city-price {
+        flex-wrap: wrap;
+        font-family: $base-font-family;
+        max-width: 15%;
+        > h5 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 0;
+            height: 50%;
+            padding: $md-padd $sm-padd;
+        }
+    }
+}
+
+@include media($large-screen-up) {
+    .featured-image {
+        width: 30%;
+    }
+    .animal-info {
+        width: 58%;
+    }
+    .city-price {
+        width: 12%;
+    }
+}
+
+.pagination {
+    text-align: center;
+    .current {
+        color: $highlight-color;
+    }
+}

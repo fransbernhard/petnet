@@ -1,0 +1,43 @@
+.hero-image {
+		margin-top: rem(55);
+		height: 40vh;
+		background-attachment: scroll;
+		background-size: cover;
+    background-position: center;
+    background-clip: content-box;
+    background-repeat: no-repeat;
+    @include media($medium-screen-up) {
+				min-height: 50vh;
+		}
+		@include media($large-screen-up) {
+				min-height: 60vh;
+		}
+}
+
+.hero-image-default {
+		background: url('../images/cat_siamese.jpeg') 50% 50% no-repeat fixed;
+}
+
+.page {
+		oveflow: auto;
+}
+
+.main {
+    max-width: $container-max-width;
+    margin: auto;
+    oveflow: auto;
+}
+
+.default {
+		max-width: $container-max-width;
+		margin: auto;
+		overflow: auto;
+}
+
+main > .hero-image {
+		margin: 0 -$md-padd;
+}
+
+.main-animal-listing {
+	margin: $lg-padd auto 0 auto;
+}

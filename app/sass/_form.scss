@@ -1,0 +1,209 @@
+fieldset {
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    padding: 0;
+}
+
+label,
+input,
+select,
+textarea {
+    display: block;
+}
+
+figure {
+    margin: 0;
+}
+
+#{$all-text-inputs} {
+    appearance: none;
+    border: $base-border;
+    box-sizing: border-box;
+    &:hover {
+        border-color: shade($base-border-color, 20%);
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        &:hover {
+            border: $base-border;
+        }
+    }
+
+    &::placeholder {
+        color: tint($base-font-color, 40%);
+    }
+}
+
+textarea {
+    resize: vertical;
+}
+
+[type="checkbox"],
+[type="radio"] {
+    display: inline;
+}
+
+[type="file"] {
+    // width: 100%;
+}
+
+/* ----------------------------------
+            CONTACT FORM
+    ----------------------------------- */
+$input-height: 40px;
+
+.contact-form {
+    @include span-columns(12);
+    @include pad(0);
+    overflow:auto;
+    @include media($medium-screen-up) {
+        // padding: $md-padd;
+    }
+    @include media($large-screen-up) {
+        // padding: $lg-padd;
+    }
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: $base-border;
+    // background: $primary-color;
+    height: $input-height;
+    padding: $xs-padd;
+}
+
+.contact-form textarea {
+    height: $input-height * 3;
+}
+
+.contact-form input[type="submit"] {
+    background-color: $primary-color;
+    color: $bg-color-light;
+    margin-top: $md-padd;
+    text-transform: uppercase;
+    &:hover {
+        background-color: lighten($primary-color, 20%);
+    }
+}
+
+input[type]:focus, textarea:focus, select:focus {
+    outline: 1px solid $highlight-color;
+    box-shadow: none;
+    border: 0;
+}
+
+select {
+    height: $input-height;
+    border-radius: 0;
+    border: $base-border;
+    background: $bg-color-light;
+}
+
+/* ----------------------------------
+            ADD FORM PAGE
+    ----------------------------------- */
+.acf-form {
+    label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        padding-left: 36px;
+        margin-right: 15px;
+        font-size: 13px;
+    }
+
+    input[type=radio],
+    input[type=checkbox] {
+        display: none;
+    }
+
+    input[type=radio],
+    input[type=checkbox] {
+        position: relative;
+    }
+
+    label:before {
+        background-color: $bg-color-light;
+        color: $bg-color-light;
+        font-family: FontAwesome;
+        content: "\f0c8";
+        font-size: 22px;
+        display: inline-block;
+        margin-right: $sm-padd;
+        position: absolute;
+        left: 0;
+        //background-color: $bg-color-light;
+        z-index: 1;
+    }
+
+    .selected:before {
+        font-family: FontAwesome;
+        content: "\f14a";
+        color: $highlight-color;
+        font-size: 26px;
+        z-index: 9;
+    }
+
+    select,
+    textarea,
+    input {
+        border: 1px solid $secondary-color;
+    }
+
+    select#acf-field_582df132e1791 {
+        height: 100px;
+    }
+
+    a.acf-button {
+        color: $highlight-color;
+        display: block;
+        &:hover {
+            color:lighten($highlight-color, 20%);
+        }
+    }
+}
+
+
+
+.acf-label {
+    margin-left: -35px!important;
+    label:before {
+        display: none;
+    }
+}
+
+.acf-input-append {
+    border: none!important; //
+}
+
+.acf-form-submit input[type="submit"] {
+    background-color: $primary-color;
+    color: $bg-color-light;
+    margin: $md-padd 0;
+    padding: $sm-padd;
+    text-transform: uppercase;
+    border: none;
+    &:hover {
+        background-color: lighten($primary-color, 20%);
+    }
+}
+
+// Image Repeater Field
+.acf-repeater .acf-row-handle.order {
+    display: none;
+}
+
+.acf-fields .acf-label .description {
+    margin-left: 35px!important;
+}

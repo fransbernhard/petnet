@@ -1,0 +1,257 @@
+.search-filter {
+    display: none;
+    background-color: $bg-color-light;
+
+    .filter-icon {
+        background-color: $highlight-color;
+        text-align: center;
+        padding: $xs-padd;
+    }
+
+    .filter-icon:before {
+        content: "\f0ae";
+        font-family: $font-icons;
+        color: $bg-color-light;
+    }
+
+    .filter .chosen {
+        font-weight: bold;
+    }
+
+    .filter {
+        border-bottom: 1px solid $bg-color;
+        padding: $sm-padd;
+
+        &:last-child {
+            border: 0;
+        }
+        h3 {
+            margin: 0;
+        }
+    }
+
+    .filter[data-condition] {
+        display: none;
+    }
+
+    .filter.dog-active[data-condition='dog'],
+    .filter.cat-active[data-condition='cat'] {
+        display: block;
+    }
+
+    .filter.dropdown {
+        position: relative;
+
+        h3 {
+            position: relative;
+            display: block;
+        }
+
+        h3:before {
+            float: right;
+            content: '\f078';
+            color: $highlight-color;
+            font-family: $font-icons;
+        }
+
+        h3.open {
+            border:none;
+        }
+
+        h3.open:before {
+            content: '\f00d';
+            font-family: $font-icons;
+            float: right;
+        }
+
+        ul {
+            display: none;
+            padding-left: $sm-padd;
+            background-color: $bg-color-light;
+            margin-bottom: 0;
+        }
+    }
+
+    .filter.toggle {
+        position: relative;
+
+        ul {
+            position:absolute;
+            top: 0;
+            right: 0;
+        }
+
+        li {
+            position:relative;
+            display: inline;
+            padding: $sm-padd;
+        }
+
+        li:before {
+            content: '\f205';
+            font-family: $font-icons;
+            font-size: $sm-heading;
+            position:absolute;
+            right: $sm-padd;
+            top: 0;
+        }
+
+        li[data-value='yes']:before {
+            color: $highlight-color;
+        }
+
+        li[data-value='no']:before {
+            transform: rotate(180deg);
+            color: $primary-color;
+        }
+    }
+}
+
+
+// SEARCH FIELD STYLING
+.searchLabel {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid $tertiary-color;
+    margin-bottom: $sm-padd;
+    @include media($medium-screen-up) {
+        margin-bottom: $md-padd;
+    }
+
+    .search-submit {
+        display: flex;
+        align-items: center;
+    }
+
+    .fa-search {
+        color: $primary-color;
+    }
+
+    input {
+        border: none!important;
+        width: 100%;
+        padding: $sm-padd $xs-padd;
+        background: $bg-color;
+        color: $primary-color;
+    }
+
+    input:active,
+    input:hover,
+    input:focus {
+        outline: none!important;
+    }
+}
+
+.filter-icon {
+   background-color: $highlight-color;
+   text-align: center;
+   padding: $xs-padd;
+   width: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.filter-icon:before {
+    content: "\f0ae";
+    font-family: $font-icons;
+    color: $bg-color-light;
+}
+
+@include media($medium-screen-up) {
+    .search-filter {
+        display: block;
+        background-color: $bg-color-light;
+        @include span-columns(3);
+    }
+
+    .filter-icon {
+        display: none;
+    }
+    .searchLabel {
+        width: 100%;
+
+        .display-none {
+            display: none;
+        }
+    }
+}
+
+ .range-slider__range {
+    -webkit-appearance: none;
+    //width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: $bg-color;
+    outline: none;
+    padding: 0;
+    margin: 10px;
+
+    // Range Handle
+    &::-webkit-slider-thumb {
+        appearance: none;
+        width: $md-padd;
+        height: $md-padd;
+        border-radius: 50%;
+        background: $highlight-color;
+        cursor: pointer;
+        transition: background .15s ease-in-out;
+        border: 3px solid $primary-color;
+
+        &:hover {
+            background: $primary-color;
+        }
+    }
+
+    &::-moz-range-thumb {
+            width: $md-padd;
+            height: $md-padd;
+            border: 0;
+            border-radius: 50%;
+            background: $highlight-color;
+            cursor: pointer;
+            transition: background .15s ease-in-out;
+
+            &:hover {
+                background: $primary-color;
+            }
+        }
+    }
+
+    // Range Label
+    .range-slider__value {
+        display: inline-block;
+        position: relative;
+        width: $lg-padd;
+        color: $secondary-color;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 3px;
+        background: $highlight-color;
+        padding: 5px 10px;
+        margin-left: 8px;
+
+        &:after {
+            position: absolute;
+            top: 8px;
+            left: -7px;
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-right: 7px solid $highlight-color;
+            border-bottom: 7px solid transparent;
+            content: '';
+        }
+    }
+
+    // Firefox Overrides
+    ::-moz-range-track {
+        background: $bg-color;
+        border: 0;
+    }
+
+    input::-moz-focus-inner,
+    input::-moz-focus-outer {
+        border: 0;
+    } 
+

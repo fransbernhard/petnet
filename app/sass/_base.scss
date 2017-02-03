@@ -1,0 +1,26 @@
+html, body {
+    height: 100%;
+}
+
+body {
+	background-color: $bg-color;
+}
+
+main {
+    margin-top: $lg-padd;
+    padding: $sm-padd;
+    @include media($medium-screen-up) {
+        padding: $md-padd $sm-padd;
+    }
+}
+
+img,
+picture {
+    margin: 0;
+    max-width: 100%;
+}
+
+.petnet-container {
+	max-width: $container-max-width;
+	margin: auto;
+}
