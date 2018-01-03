@@ -2,22 +2,24 @@
  * REQUIREMENTS
  */
 // Requiring Gulp
-var gulp = require('gulp');
+var gulp = require('gulp'),
 // Requires the gulp-sass plugin
-var sass = require('gulp-sass');
+sass = require('gulp-sass'),
 // Prevent gulp from exiting on error
-var plumber = require('gulp-plumber');
+plumber = require('gulp-plumber'),
 // Requiring autoprefixer
-var autoprefixer = require('gulp-autoprefixer');
+autoprefixer = require('gulp-autoprefixer'),
 // Requiring Sourcemaps
-var sourcemaps = require('gulp-sourcemaps');
+sourcemaps = require('gulp-sourcemaps'),
 //Auto refresh browser on file save
-var browserSync = require('browser-sync');
+browserSync = require('browser-sync'),
 // Require merge-stream to output multilple tasks to multiple destinations
-var merge = require('merge-stream');
-
-var cssmin = require('gulp-cssmin');
-var uglify = require('gulp-uglifyjs');
+merge = require('merge-stream'),
+cssmin = require('gulp-cssmin'),
+uglify = require('gulp-uglifyjs'),
+reload = browserSync.reaload,
+rename = require('gulp-rename'),
+cache = require('gulp-cache');
 
 // Internal config, folder structure
 var paths = {
@@ -32,32 +34,53 @@ var paths = {
     }
 };
 
+// browser-sync task for starting the server.
+gulp.task('browser-sync', function() {
+    //watch files
+    var files = [
+      './style.css',
+      './*.html'
+    ];
+
+    //initialize browsersync
+    browserSync.init(files, {
+        //browsersync with a php server
+        proxy: "http://127.0.0.1/petnet/",
+        notify: false
+    });
+});
+
 gulp.task('js', function() {
     gulp.src(paths.script.source)
-        .pipe(uglify('petnet.min.js'))
-        .pipe(gulp.dest(paths.script.destination))
-        .pipe(browserSync.reload({
+      .pipe(uglify('petnet.min.js'))
+      .pipe(gulp.dest(paths.script.destination))
+      .pipe(browserSync.reload({
             stream: true
         }));
 });
 
 try {
-gulp.task('sass', function() {
-    return gulp.src(paths.style.source + 'style.scss')
-        .pipe(plumber())
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError)) // Initialize sass
-        .pipe(autoprefixer()) // Passes it through gulp-autoprefixer
-        .pipe(sourcemaps.write()) // Writing sourcemaps
-        .pipe(gulp.dest(paths.style.destination))
-        .pipe(browserSync.reload({
-            stream: true
-        }));
-});
-} catch(e){console.log("HEJ JAG ÄR ETT FEL",e.stack);}
+    gulp.task('sass', function() {
+        return gulp.src(paths.style.source + 'style.scss')
+          .pipe(plumber())
+          .pipe(sourcemaps.init())
+          .pipe(sass().on('error', sass.logError)) // Initialize sass
+          .pipe(autoprefixer()) // Passes it through gulp-autoprefixer
+          // .pipe(sourcemaps.write()) // Writing sourcemaps
+          .pipe(cssmin().on('error', function(err) {
+            console.log(err);
+          }))
+          .pipe(rename({
+            suffix: '.min'
+          }))
+          .pipe(gulp.dest(paths.style.destination))
+          .pipe(browserSync.reload({
+              stream: true
+          }));
+    });
+} catch(e) { console.log("HEJ JAG ÄR ETT FEL",e.stack);}
 
 gulp.task('watch', ['sass', 'js'], function() {
-
     browserSync({
         proxy: 'http://animals.dev/',
         notify: false
@@ -68,4 +91,8 @@ gulp.task('watch', ['sass', 'js'], function() {
     gulp.watch('**/*.php', browserSync.reload);
 });
 
-gulp.task('default', ['style', 'watch', 'prod']);
+gulp.task('default', ['sass', 'js', 'browser-sync'], function(){
+    gulp.watch(paths.style.source + '**/*.scss', ['sass']);
+    gulp.watch(paths.script.source, ['js']);
+    gulp.watch('**/*.html', browserSync.reload);
+});

@@ -19,7 +19,7 @@ function petnet_delete_post_link() {
 
 function petnet_enqueue_scripts() {
     wp_enqueue_style( 'petnet-style', get_template_directory_uri().'/dist/css/style.css' );
-    wp_enqueue_script( 'petnet-script', get_template_directory_uri() . '/dist/js/petnet.min.js', array("jquery") );
+    wp_enqueue_script( 'petnet-script', get_template_directory_uri() . array("jquery"), '/dist/js/petnet.min.js');
 
     // Google fonts
     wp_enqueue_style( 'google-body', '//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
@@ -105,8 +105,3 @@ global $post;
     return $post_id;
 }
 add_filter('acf/pre_save_post' , 'my_pre_save_post' );
-
-
-
-
-
